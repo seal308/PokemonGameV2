@@ -5,6 +5,7 @@ import java.util.HashSet;
 import pokemonBattleJUnit.Constants;
 import pokemonBattleJUnit.Effectiveness;
 import pokemonBattleJUnit.Move;
+import pokemonBattleJUnit.PokemonName;
 import pokemonBattleJUnit.Type;
 
 /*
@@ -25,9 +26,10 @@ public class Pokemon {
 
 	private static final int MIN_HP = Constants.MIN_HP;
 
-	public Pokemon(String name, Type type) {
-		this.name = name;
-		this.type = type;
+	public Pokemon(PokemonName name) {
+		this.name = name.toString();
+		// this.type = type;
+		type = name.getType();
 
 		// moves = new Move[4];
 		fainted = false;
@@ -75,9 +77,11 @@ public class Pokemon {
 		checkFaint();
 	}
 
-	public void attack(Pokemon defencePokemon) {
+	public void attack(Pokemon defencePokemon, Move attackMove) {
 		// defencePokemon.damaged(amount);
 		// damage with a move in parameter for damaged
+
+		defencePokemon.damaged(attackMove);
 	}
 
 	public void checkFaint() {

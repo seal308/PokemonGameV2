@@ -12,7 +12,7 @@ import pokemonBattleJUnit.Type;
 public class MoveGenerator {
 
 	private EnumMap<Type, List<Move>> moves = new EnumMap<Type, List<Move>>(Type.class);
-	private Random randIndex = new Random();
+	private Random randIndex;
 
 	public MoveGenerator() {
 		randIndex = new Random();

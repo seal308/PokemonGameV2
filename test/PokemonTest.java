@@ -6,7 +6,7 @@ import junit.framework.TestCase;
 import logic.Pokemon;
 import pokemonBattleJUnit.Constants;
 import pokemonBattleJUnit.Move;
-import pokemonBattleJUnit.Type;
+import pokemonBattleJUnit.PokemonName;
 
 public class PokemonTest extends TestCase {
 
@@ -16,9 +16,10 @@ public class PokemonTest extends TestCase {
 		Pokemon testPokemon;
 		int hp = -1;
 
-		testPokemon = new Pokemon("bulbasaur", Type.GRASS);
+		testPokemon = new Pokemon(PokemonName.BULBASAUR);
 		hp = testPokemon.getHP();
 
+		// TODO: get error sometimes
 		assertTrue("hp less than MIN", hp > MIN_HP);
 		assertTrue("hp greater than MIN + MIN/2", hp < (MIN_HP + MIN_HP / 2));
 	}
@@ -55,21 +56,25 @@ public class PokemonTest extends TestCase {
 		fail("Not yet implemented");
 	}
 	
-	@Test
-	void testGetName() {
-		fail("Not yet implemented");
-	}
-	
 	*/
+
+	@Test
+	public void testGetName() {
+
+		// might wanna change this later to Mankey
+
+		Pokemon mankey = new Pokemon(PokemonName.MANKEY);
+		assertEquals("mankey name wrong", "MANKEY", mankey.getName());
+	}
 
 	@Test
 	public void testCheckFaint() {
 
-		Pokemon chimeko = new Pokemon("chimeko", Type.PSYCHIC);
-		chimeko.damaged(Move.MAX_HIT);
-		assertTrue("chimeko shoulda but didn't faint", chimeko.getFainted());
+		Pokemon chansey = new Pokemon(PokemonName.CHANSEY);
+		chansey.damaged(Move.MAX_HIT);
+		assertTrue("chimeko shoulda but didn't faint", chansey.getFainted());
 
-		Pokemon haunter = new Pokemon("haunter", Type.GHOST);
+		Pokemon haunter = new Pokemon(PokemonName.HAUNTER);
 		haunter.damaged(Move.MAX_HIT);
 		// b/c normal attack has 0 effect on ghost pokemon
 		assertFalse("hunter should not die from Normal MAX HIT", haunter.getFainted());
