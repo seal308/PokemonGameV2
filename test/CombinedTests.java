@@ -8,7 +8,8 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 @RunWith(Suite.class)
-@SuiteClasses({ MoveGeneratorTest.class, MoveTest.class, PokemonTest.class, TypeEfficienciesTest.class })
+@SuiteClasses({ MoveGeneratorTest.class, MoveTest.class, PokemonTest.class, TypeEfficienciesTest.class,
+		TrainerTest.class })
 
 public class CombinedTests extends TestCase {
 
@@ -18,6 +19,7 @@ public class CombinedTests extends TestCase {
 		suite.addTestSuite(MoveTest.class);
 		suite.addTestSuite(PokemonTest.class);
 		suite.addTestSuite(TypeEfficienciesTest.class);
+		suite.addTestSuite(TrainerTest.class);
 		return suite;
 	}
 

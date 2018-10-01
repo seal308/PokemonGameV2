@@ -24,12 +24,16 @@ public class Pokemon {
 	private boolean fainted;
 	private TypeEffectiveness typeEff;
 
+	Trainer trainer;
+
 	private static final int MIN_HP = Constants.MIN_HP;
 
-	public Pokemon(PokemonName name) {
+	public Pokemon(PokemonName name, Trainer trainer) {
 		this.name = name.toString();
 		// this.type = type;
 		type = name.getType();
+
+		this.trainer = trainer;
 
 		// moves = new Move[4];
 		fainted = false;
@@ -90,6 +94,7 @@ public class Pokemon {
 		{
 			hp = 0;
 			fainted = true;
+			trainer.partyPokeFainted(this);
 		}
 	}
 

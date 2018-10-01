@@ -5,7 +5,7 @@ import java.util.Random;
 import pokemonBattleJUnit.PokemonName;
 
 public class PokeGenerator {
-	public Pokemon getRandomPokemon() {
+	public Pokemon getRandomPokemon(Trainer trainer) {
 
 		PokemonName randPokeName = null;
 		Random randIndex = new Random();
@@ -15,16 +15,17 @@ public class PokeGenerator {
 
 		randPokeName = pokemonArray[index];
 
-		Pokemon returnPokemon = new Pokemon(randPokeName);
+		Pokemon returnPokemon = new Pokemon(randPokeName, trainer);
 
 		return returnPokemon;
 	}
 
-	public Pokemon[] getSixRandomPokemon() {
+	public Pokemon[] getSixRandomPokemon(Trainer trainer) {
+
 		Pokemon[] pokemons = new Pokemon[6];
 		for (int i = 0; i < 6; i++)
 		{
-			pokemons[i] = getRandomPokemon();
+			pokemons[i] = getRandomPokemon(trainer);
 		}
 		return pokemons;
 	}

@@ -4,11 +4,14 @@ import org.junit.jupiter.api.Test;
 
 import junit.framework.TestCase;
 import logic.Pokemon;
+import logic.Trainer;
 import pokemonBattleJUnit.Constants;
 import pokemonBattleJUnit.Move;
 import pokemonBattleJUnit.PokemonName;
 
 public class PokemonTest extends TestCase {
+
+	Trainer testTrainer = new Trainer("Tester");
 
 	@Test
 	public void testFullHPInRange() {
@@ -16,7 +19,7 @@ public class PokemonTest extends TestCase {
 		Pokemon testPokemon;
 		int hp = -1;
 
-		testPokemon = new Pokemon(PokemonName.BULBASAUR);
+		testPokemon = new Pokemon(PokemonName.BULBASAUR, testTrainer);
 		hp = testPokemon.getHP();
 
 		// TODO: get error sometimes
@@ -63,18 +66,18 @@ public class PokemonTest extends TestCase {
 
 		// might wanna change this later to Mankey
 
-		Pokemon mankey = new Pokemon(PokemonName.MANKEY);
+		Pokemon mankey = new Pokemon(PokemonName.MANKEY, testTrainer);
 		assertEquals("mankey name wrong", "MANKEY", mankey.getName());
 	}
 
 	@Test
 	public void testCheckFaint() {
 
-		Pokemon chansey = new Pokemon(PokemonName.CHANSEY);
+		Pokemon chansey = new Pokemon(PokemonName.CHANSEY, testTrainer);
 		chansey.damaged(Move.MAX_HIT);
 		assertTrue("chimeko shoulda but didn't faint", chansey.getFainted());
 
-		Pokemon haunter = new Pokemon(PokemonName.HAUNTER);
+		Pokemon haunter = new Pokemon(PokemonName.HAUNTER, testTrainer);
 		haunter.damaged(Move.MAX_HIT);
 		// b/c normal attack has 0 effect on ghost pokemon
 		assertFalse("hunter should not die from Normal MAX HIT", haunter.getFainted());
