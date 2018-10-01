@@ -4,8 +4,7 @@ import java.util.HashSet;
 
 import pokemonBattleJUnit.Constants;
 import pokemonBattleJUnit.Effectiveness;
-import pokemonBattleJUnit.MoveEnum;
-import pokemonBattleJUnit.PokemonTypeException;
+import pokemonBattleJUnit.Move;
 import pokemonBattleJUnit.Type;
 
 /*
@@ -15,10 +14,10 @@ import pokemonBattleJUnit.Type;
  * 		when something like attackPokemon.attack(defencePokemon) makes more sense
  */
 
-public class Pokemon2 {
+public class Pokemon {
 	private String name;
 	private Type type;
-	private HashSet<MoveEnum> moves;
+	private HashSet<Move> moves;
 	private int hp;
 	private int maxHp;
 	private boolean fainted;
@@ -26,7 +25,7 @@ public class Pokemon2 {
 
 	private static final int MIN_HP = Constants.MIN_HP;
 
-	public Pokemon2(String name, Type type) throws PokemonTypeException {
+	public Pokemon(String name, Type type) {
 		this.name = name;
 		this.type = type;
 
@@ -48,7 +47,7 @@ public class Pokemon2 {
 		return type;
 	}
 
-	public void damaged(MoveEnum attackMove) {
+	public void damaged(Move attackMove) {
 
 		int amount = attackMove.getDamage();
 		Type attackType = attackMove.getType();
@@ -76,7 +75,7 @@ public class Pokemon2 {
 		checkFaint();
 	}
 
-	public void attack(PokemonOld defencePokemon) {
+	public void attack(Pokemon defencePokemon) {
 		// defencePokemon.damaged(amount);
 		// damage with a move in parameter for damaged
 	}
@@ -107,7 +106,7 @@ public class Pokemon2 {
 		moves = moveGen.getMovesSet(type);
 	}
 
-	public HashSet<MoveEnum> getMoves() {
+	public HashSet<Move> getMoves() {
 		return moves;
 	}
 

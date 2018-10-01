@@ -6,13 +6,19 @@ import org.junit.jupiter.api.Test;
 
 import junit.framework.TestCase;
 import logic.MoveGenerator;
-import pokemonBattleJUnit.MoveEnum;
+import pokemonBattleJUnit.Move;
 import pokemonBattleJUnit.Type;
 
-class MoveGeneratorTest extends TestCase {
+public class MoveGeneratorTest extends TestCase {
+
+	/*
+	public MoveGeneratorTest(String name) {
+	
+	}
+	*/
 
 	@Test
-	void testGetRandomTypeMove() {
+	public void testGetRandomTypeMove() {
 		MoveGenerator moveGen = new MoveGenerator();
 		assertEquals(Type.ELECTRIC, moveGen.getRandomTypeMove(Type.ELECTRIC).getType());
 		assertEquals(Type.GHOST, moveGen.getRandomTypeMove(Type.GHOST).getType());
@@ -21,25 +27,25 @@ class MoveGeneratorTest extends TestCase {
 
 	@Test
 	// fire type has 4 total moves in total
-	void testGetMoveSetExact4() {
+	public void testGetMoveSetExact4() {
 		MoveGenerator moveGen = new MoveGenerator();
-		HashSet<MoveEnum> moves = moveGen.getMovesSet(Type.FIRE);
+		HashSet<Move> moves = moveGen.getMovesSet(Type.FIRE);
 
-		assertTrue(moves.contains(MoveEnum.EMBER));
-		assertTrue(moves.contains(MoveEnum.FLAMETHROWER));
-		assertTrue(moves.contains(MoveEnum.FIRE_BLAST));
-		assertTrue(moves.contains(MoveEnum.FIRE_SPIN));
+		assertTrue(moves.contains(Move.EMBER));
+		assertTrue(moves.contains(Move.FLAMETHROWER));
+		assertTrue(moves.contains(Move.FIRE_BLAST));
+		assertTrue(moves.contains(Move.FIRE_SPIN));
 		assertEquals(4, moves.size());
 	}
 
 	@Test
 	// normla type has > 4 moves in total
-	void testGetMoveSetGreater4() {
+	public void testGetMoveSetGreater4() {
 		MoveGenerator moveGen = new MoveGenerator();
-		HashSet<MoveEnum> moves = moveGen.getMovesSet(Type.NORMAL);
+		HashSet<Move> moves = moveGen.getMovesSet(Type.NORMAL);
 
 		assertEquals(4, moves.size());
-		for (MoveEnum move : moves)
+		for (Move move : moves)
 		{
 			assertEquals(Type.NORMAL, move.getType());
 		}
@@ -47,13 +53,13 @@ class MoveGeneratorTest extends TestCase {
 
 	@Test
 	// rock type only has 2 moves, rock slide and rock throw
-	void testGetMoveSetLess4() {
+	public void testGetMoveSetLess4() {
 		MoveGenerator moveGen = new MoveGenerator();
-		HashSet<MoveEnum> moves = moveGen.getMovesSet(Type.ROCK);
+		HashSet<Move> moves = moveGen.getMovesSet(Type.ROCK);
 
 		assertEquals(4, moves.size());
-		assertTrue(moves.contains(MoveEnum.ROCK_SLIDE));
-		assertTrue(moves.contains(MoveEnum.ROCK_THROW));
+		assertTrue(moves.contains(Move.ROCK_SLIDE));
+		assertTrue(moves.contains(Move.ROCK_THROW));
 
 	}
 

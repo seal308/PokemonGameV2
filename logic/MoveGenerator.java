@@ -6,12 +6,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 
-import pokemonBattleJUnit.MoveEnum;
+import pokemonBattleJUnit.Move;
 import pokemonBattleJUnit.Type;
 
 public class MoveGenerator {
 
-	private EnumMap<Type, List<MoveEnum>> moves = new EnumMap<Type, List<MoveEnum>>(Type.class);
+	private EnumMap<Type, List<Move>> moves = new EnumMap<Type, List<Move>>(Type.class);
 	private Random randIndex = new Random();
 
 	public MoveGenerator() {
@@ -21,36 +21,25 @@ public class MoveGenerator {
 
 	private void setGenerator() {
 
-		/*
-		// @formatter:off
-		moves.put(Type.WATER, Arrays.asList(
-				new Move(MoveName.WATER.WATER_GUN.toString(), Type.WATER, 13, 0.2), 
-				new Move(MoveName.WATER.BUBBLE.toString(), Type.WATER, 13, 0.2),
-				new Move(MoveName.WATER.HYDRO_PUMP.toString(), Type.WATER, 13, 0.2),
-				new Move(MoveName.WATER.WATERFALL.toString(), Type.WATER, 13, 0.2),
-				new Move(MoveName.WATER.SURF.toString(), Type.WATER, 13, 0.2)));
-		// @formatter:on
-		 */
-
 		// initialize keys
 		// could use a loop of Type.values() do later if have time
-		moves.put(Type.NORMAL, new ArrayList<MoveEnum>());
-		moves.put(Type.FIRE, new ArrayList<MoveEnum>());
-		moves.put(Type.WATER, new ArrayList<MoveEnum>());
-		moves.put(Type.ELECTRIC, new ArrayList<MoveEnum>());
-		moves.put(Type.GRASS, new ArrayList<MoveEnum>());
-		moves.put(Type.ICE, new ArrayList<MoveEnum>());
-		moves.put(Type.FIGHTING, new ArrayList<MoveEnum>());
-		moves.put(Type.POISON, new ArrayList<MoveEnum>());
-		moves.put(Type.GROUND, new ArrayList<MoveEnum>());
-		moves.put(Type.FLYING, new ArrayList<MoveEnum>());
-		moves.put(Type.PSYCHIC, new ArrayList<MoveEnum>());
-		moves.put(Type.BUG, new ArrayList<MoveEnum>());
-		moves.put(Type.ROCK, new ArrayList<MoveEnum>());
-		moves.put(Type.GHOST, new ArrayList<MoveEnum>());
-		moves.put(Type.DRAGON, new ArrayList<MoveEnum>());
+		moves.put(Type.NORMAL, new ArrayList<Move>());
+		moves.put(Type.FIRE, new ArrayList<Move>());
+		moves.put(Type.WATER, new ArrayList<Move>());
+		moves.put(Type.ELECTRIC, new ArrayList<Move>());
+		moves.put(Type.GRASS, new ArrayList<Move>());
+		moves.put(Type.ICE, new ArrayList<Move>());
+		moves.put(Type.FIGHTING, new ArrayList<Move>());
+		moves.put(Type.POISON, new ArrayList<Move>());
+		moves.put(Type.GROUND, new ArrayList<Move>());
+		moves.put(Type.FLYING, new ArrayList<Move>());
+		moves.put(Type.PSYCHIC, new ArrayList<Move>());
+		moves.put(Type.BUG, new ArrayList<Move>());
+		moves.put(Type.ROCK, new ArrayList<Move>());
+		moves.put(Type.GHOST, new ArrayList<Move>());
+		moves.put(Type.DRAGON, new ArrayList<Move>());
 
-		for (MoveEnum move : MoveEnum.values())
+		for (Move move : Move.values())
 		{
 			// what if MoveEnums had no normal moves? and later we try to access map of
 			// normal?
@@ -106,8 +95,8 @@ public class MoveGenerator {
 		}
 	}
 
-	public MoveEnum getRandomTypeMove(Type type) {
-		MoveEnum returnMove;
+	public Move getRandomTypeMove(Type type) {
+		Move returnMove;
 
 		// might wanna check if null before using just in case
 		int length = moves.get(type).size();
@@ -118,8 +107,8 @@ public class MoveGenerator {
 		return returnMove;
 	}
 
-	public MoveEnum getRandomMove() {
-		MoveEnum returnMove;
+	public Move getRandomMove() {
+		Move returnMove;
 
 		Type[] types = Type.values();
 		int index = randIndex.nextInt(types.length);
@@ -130,17 +119,17 @@ public class MoveGenerator {
 		return returnMove;
 	}
 
-	public HashSet<MoveEnum> getMovesSet(Type type) {
-		HashSet<MoveEnum> moveSet;
+	public HashSet<Move> getMovesSet(Type type) {
+		HashSet<Move> moveSet;
 
 		int numMovesForType = moves.get(type).size();
 
 		if (numMovesForType == 4)
 		{
-			moveSet = new HashSet<MoveEnum>(moves.get(type));
+			moveSet = new HashSet<Move>(moves.get(type));
 		} else if (numMovesForType < 4)
 		{
-			moveSet = new HashSet<MoveEnum>(moves.get(type));
+			moveSet = new HashSet<Move>(moves.get(type));
 
 			while (moveSet.size() < 4)
 			{
@@ -148,7 +137,7 @@ public class MoveGenerator {
 			}
 		} else // numMovesForType > 4
 		{
-			moveSet = new HashSet<MoveEnum>();
+			moveSet = new HashSet<Move>();
 			while (moveSet.size() < 4)
 			{
 				moveSet.add(getRandomTypeMove(type));

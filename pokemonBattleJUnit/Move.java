@@ -2,7 +2,7 @@ package pokemonBattleJUnit;
 
 import java.util.Random;
 
-public enum MoveEnum {
+public enum Move {
 
 	// @formatter:off
 	
@@ -100,7 +100,10 @@ public enum MoveEnum {
 	
 	//dragon
 	DRAGON_RAGE(Type.DRAGON, 13, 0.2), 
-	DRAGONS_SMELL_BAD(Type.DRAGON, 20, 0.3);
+	DRAGONS_SMELL_BAD(Type.DRAGON, 20, 0.3),
+	
+	//for Testing
+	MAX_HIT(Type.NORMAL, 100000, 1);
 	
 	// @formatter:ON;
 	
@@ -108,7 +111,7 @@ public enum MoveEnum {
 	private Type type;
 	private double variability;
 
-	private MoveEnum(Type type, int defaultDamage, double variability) {
+	private Move(Type type, int defaultDamage, double variability) {
 		this.type = type;
 		this.variability = variability;
 		damage = defaultDamage;

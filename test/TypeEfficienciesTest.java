@@ -9,10 +9,15 @@ import logic.TypeEffectiveness;
 import pokemonBattleJUnit.Effectiveness;
 import pokemonBattleJUnit.Type;
 
-class TypeEfficienciesTest extends TestCase {
+public class TypeEfficienciesTest extends TestCase {
+	/*
+	public TypeEfficienciesTest(String name) {
+	
+	}
+	*/
 
 	@Test
-	void testGetSuperEff() {
+	public void testGetSuperEff() {
 		// fail("Not yet implemented");
 
 		TypeEffectiveness typeEff = new TypeEffectiveness();
@@ -45,7 +50,7 @@ class TypeEfficienciesTest extends TestCase {
 	*/
 
 	@Test
-	void testFindEfficiency() {
+	public void testFindEfficiency() {
 
 		TypeEffectiveness typeEff = new TypeEffectiveness();
 		assertEquals(Effectiveness.SUPEREFFECTIVE, typeEff.findEffectiveness(Type.ICE, Type.DRAGON));

@@ -1,8 +1,7 @@
 package presentation;
 
-import logic.MoveEfficiencies;
-import logic.PokemonOld;
-import pokemonBattleJUnit.PokemonTypeException;
+import logic.Pokemon;
+import pokemonBattleJUnit.Type;
 
 public class Scene {
 	public void start() {
@@ -12,33 +11,23 @@ public class Scene {
 		System.out.println("Jessie from team rocket pops from behind a tree");
 		System.out.println("\"ohh ehh James is not here... TIME TO BATTLE TWERP!!!\"");
 
-		PokemonOld[] pokemons = new PokemonOld[15];
+		Pokemon[] pokemons = new Pokemon[15];
 
-		try
-		{
-			pokemons[0] = new PokemonOld("bulbasaur", "grass");
-			pokemons[1] = new PokemonOld("squirtle", "water");
-			pokemons[2] = new PokemonOld("charmander", "fire");
-			pokemons[3] = new PokemonOld("pikachu", "electric");
-			pokemons[4] = new PokemonOld("dratini", "dragon");
-			pokemons[5] = new PokemonOld("haunter", "ghost");
-			pokemons[6] = new PokemonOld("abra", "psychic");
-			pokemons[7] = new PokemonOld("butterfree", "bug");
-			pokemons[8] = new PokemonOld("muk", "poison");
-			pokemons[9] = new PokemonOld("eevee", "normal");
-			pokemons[10] = new PokemonOld("dewgong", "ice");
-			pokemons[11] = new PokemonOld("machamp", "fighting");
-			pokemons[12] = new PokemonOld("diglett", "ground");
-			pokemons[13] = new PokemonOld("pidgey", "flying");
-			pokemons[14] = new PokemonOld("onix", "rock");
+		pokemons[0] = new Pokemon("bulbasaur", Type.GRASS);
+		pokemons[1] = new Pokemon("squirtle", Type.WATER);
+		pokemons[2] = new Pokemon("charmander", Type.FIRE);
+		pokemons[3] = new Pokemon("pikachu", Type.ELECTRIC);
+		pokemons[4] = new Pokemon("dratini", Type.DRAGON);
+		pokemons[5] = new Pokemon("haunter", Type.GHOST);
+		pokemons[6] = new Pokemon("abra", Type.PSYCHIC);
+		pokemons[7] = new Pokemon("butterfree", Type.BUG);
+		pokemons[8] = new Pokemon("muk", Type.POISON);
+		pokemons[9] = new Pokemon("eevee", Type.NORMAL);
+		pokemons[10] = new Pokemon("dewgong", Type.ICE);
+		pokemons[11] = new Pokemon("machamp", Type.FIGHTING);
+		pokemons[12] = new Pokemon("diglett", Type.GROUND);
+		pokemons[13] = new Pokemon("pidgey", Type.FLYING);
+		pokemons[14] = new Pokemon("onix", Type.ROCK);
 
-		} catch (PokemonTypeException e)
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.out.println(e.getMessage());
-		}
-
-		MoveEfficiencies me = new MoveEfficiencies();
 	}
 }
