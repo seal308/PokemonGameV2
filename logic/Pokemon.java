@@ -7,6 +7,7 @@ import pokemonBattleJUnit.Effectiveness;
 import pokemonBattleJUnit.Move;
 import pokemonBattleJUnit.PokemonName;
 import pokemonBattleJUnit.Type;
+import presentation.Scene;
 
 /*
  * TODO: Make a attack method
@@ -65,26 +66,33 @@ public class Pokemon {
 		if (effectiveness == Effectiveness.SUPEREFFECTIVE)
 		{
 			multiplier = 2;
+			Scene.printToScreen("It's supereffective!");
 		} else if (effectiveness == Effectiveness.INEFFECTIVE)
 		{
 			multiplier = 0.5;
+			Scene.printToScreen("It's not very effective...");
 		} else if (effectiveness == Effectiveness.NOEFFECT)
 		{
 			multiplier = 0;
+			Scene.printToScreen("It doesn't affect " + name + "...");
 		} else
 		{
 			// must be normal effect
 			multiplier = 1;
 		}
-
+		int oldHP = hp;
 		hp -= (amount * multiplier);
 		checkFaint();
+		if (fainted == false)
+		{
+			Scene.printToScreen(name + " lost " + (oldHP - hp) + " hps. Current hp = " + hp);
+		}
 	}
 
 	public void attack(Pokemon defencePokemon, Move attackMove) {
 		// defencePokemon.damaged(amount);
 		// damage with a move in parameter for damaged
-
+		Scene.printToScreen(name + " used " + attackMove.toString());
 		defencePokemon.damaged(attackMove);
 	}
 
@@ -92,6 +100,7 @@ public class Pokemon {
 
 		if (hp <= 0)
 		{
+			Scene.printToScreen(name + " fainted!");
 			hp = 0;
 			fainted = true;
 			trainer.partyPokeFainted(this);

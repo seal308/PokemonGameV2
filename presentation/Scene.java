@@ -6,7 +6,11 @@ public class Scene {
 				+ "\nWhile walking the path to Estreni town he hear's a voice");
 		System.out.println("\"Prepare for trouble ....\"");
 		System.out.println("Jessie from team rocket pops from behind a tree");
-		System.out.println("\"ohh ehh James is not here... TIME TO BATTLE TWERP!!!\"");
+		System.out.println("\"ohh ehh James is not here... TIME TO BATTLE TWERP!!!\"\n\n");
 
+	}
+
+	public static void printToScreen(String text) {
+		System.out.println(text);
 	}
 }

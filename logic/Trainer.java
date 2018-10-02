@@ -3,20 +3,25 @@ package logic;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import presentation.Scene;
+
 public class Trainer {
 	private String name;
 	private PokeGenerator pokeGen;
 	private Pokemon currPokemon;
 	private ArrayList<Pokemon> pokemons;
+	private boolean defeated;
 
 	public Trainer(String name) {
 		this.name = name;
 		pokeGen = new PokeGenerator();
 		pokemons = new ArrayList<Pokemon>(Arrays.asList(pokeGen.getSixRandomPokemon(this)));
 		currPokemon = pokemons.get(0);
+		defeated = false;
 	}
 
 	public void partyPokeFainted(Pokemon poke) {
+
 		if (pokemons.contains(poke))
 		{
 			if (currPokemon.equals(poke))
@@ -36,8 +41,12 @@ public class Trainer {
 		if (checkLost())
 		{
 			// announce game over
-			System.out.println("Game over");
+			Scene.printToScreen("Trainer " + name + " is defeated");
+			defeated = true;
 			currPokemon = null;
+		} else
+		{
+			Scene.printToScreen(name + " sent out " + currPokemon.getName() + " hp=" + currPokemon.getHP());
 		}
 	}
 
@@ -51,6 +60,7 @@ public class Trainer {
 		return lost;
 	}
 
+	// TODO
 	public void switchCurrPoke() {
 
 	}
@@ -70,5 +80,9 @@ public class Trainer {
 			System.out.print(poke.getName() + " ");
 		}
 		System.out.println();
+	}
+
+	public boolean checkDefeated() {
+		return defeated;
 	}
 }
