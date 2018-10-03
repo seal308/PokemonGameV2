@@ -4,10 +4,10 @@ import org.junit.jupiter.api.Test;
 
 import logic.Battle;
 
-class BattleTest {
+public class BattleTest {
 
 	@Test
-	void testCompTurn() {
+	public void testCompTurn() {
 		Battle battle = new Battle();
 
 		battle.startBattle();

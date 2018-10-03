@@ -61,8 +61,8 @@ public class Trainer {
 	}
 
 	// TODO
-	public void switchCurrPoke() {
-
+	public void switchPlayerPoke() {
+		showPokemons();
 	}
 
 	public Pokemon getCurrPokemon() {
@@ -71,6 +71,14 @@ public class Trainer {
 
 	public String getName() {
 		return name;
+	}
+
+	public ArrayList<Pokemon> getAllPokemon() {
+		return pokemons;
+	}
+
+	public void setCurrPokemon(Pokemon poke) {
+		currPokemon = poke;
 	}
 
 	public void showPokemons() {
