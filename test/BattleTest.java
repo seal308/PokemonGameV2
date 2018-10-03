@@ -6,6 +6,8 @@ import logic.Battle;
 
 public class BattleTest {
 
+	// TODO: Battle Tests, should have made them before and during writing
+
 	@Test
 	public void testCompTurn() {
 		Battle battle = new Battle();

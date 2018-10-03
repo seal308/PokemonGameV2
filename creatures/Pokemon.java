@@ -1,12 +1,14 @@
-package logic;
+package creatures;
 
 import java.util.HashSet;
 
-import pokemonBattleJUnit.Constants;
-import pokemonBattleJUnit.Effectiveness;
-import pokemonBattleJUnit.Move;
-import pokemonBattleJUnit.PokemonName;
-import pokemonBattleJUnit.Type;
+import constants.Constants;
+import constants.Effectiveness;
+import constants.Move;
+import constants.PokemonName;
+import constants.Type;
+import generators.MoveGenerator;
+import logic.TypeEffectiveness;
 import presentation.Scene;
 
 /*

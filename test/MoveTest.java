@@ -2,9 +2,9 @@ package test;
 
 import org.junit.jupiter.api.Test;
 
+import constants.Move;
+import constants.Type;
 import junit.framework.TestCase;
-import pokemonBattleJUnit.Move;
-import pokemonBattleJUnit.Type;
 
 public class MoveTest extends TestCase {
 	/*

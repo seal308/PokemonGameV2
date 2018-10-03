@@ -4,10 +4,10 @@ import java.util.HashSet;
 
 import org.junit.jupiter.api.Test;
 
+import constants.Move;
+import constants.Type;
+import generators.MoveGenerator;
 import junit.framework.TestCase;
-import logic.MoveGenerator;
-import pokemonBattleJUnit.Move;
-import pokemonBattleJUnit.Type;
 
 public class MoveGeneratorTest extends TestCase {
 

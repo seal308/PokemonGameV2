@@ -1,8 +1,10 @@
-package logic;
+package generators;
 
 import java.util.Random;
 
-import pokemonBattleJUnit.PokemonName;
+import constants.PokemonName;
+import creatures.Pokemon;
+import creatures.Trainer;
 
 public class PokeGenerator {
 	public Pokemon getRandomPokemon(Trainer trainer) {

@@ -4,10 +4,10 @@ import java.util.Arrays;
 
 import org.junit.jupiter.api.Test;
 
+import constants.Effectiveness;
+import constants.Type;
 import junit.framework.TestCase;
 import logic.TypeEffectiveness;
-import pokemonBattleJUnit.Effectiveness;
-import pokemonBattleJUnit.Type;
 
 public class TypeEfficienciesTest extends TestCase {
 	/*

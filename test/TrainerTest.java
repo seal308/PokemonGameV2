@@ -2,10 +2,10 @@ package test;
 
 import org.junit.jupiter.api.Test;
 
+import constants.Move;
+import creatures.Pokemon;
+import creatures.Trainer;
 import junit.framework.TestCase;
-import logic.Pokemon;
-import logic.Trainer;
-import pokemonBattleJUnit.Move;
 
 public class TrainerTest extends TestCase {
 

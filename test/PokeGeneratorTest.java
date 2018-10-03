@@ -2,10 +2,10 @@ package test;
 
 import org.junit.jupiter.api.Test;
 
+import creatures.Pokemon;
+import creatures.Trainer;
+import generators.PokeGenerator;
 import junit.framework.TestCase;
-import logic.PokeGenerator;
-import logic.Pokemon;
-import logic.Trainer;
 
 class PokeGeneratorTest extends TestCase {
 

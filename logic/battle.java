@@ -6,29 +6,24 @@ import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
-import pokemonBattleJUnit.Move;
+import constants.Move;
+import creatures.Pokemon;
+import creatures.Trainer;
 import presentation.Scene;
 
 public class Battle {
 	private Trainer player;
 	private Trainer computer;
-	private MoveGenerator moveGen;
-
-	/*
-	 * TODO: If comp attack no effect, if another poke, go to next pokemon
-	 */
 
 	public Battle() {
 		player = new Trainer("Drew");
 		computer = new Trainer("Jessie");
-		// startBattle();
 	}
 
-	public void computerTurn() {
+	private void computerTurn() {
+		// TODO: If comp attack no effect, if another poke, go to next pokemon
 
 		Scene.printToScreen("\n" + computer.getName() + "\'s turn...");
-
-		moveGen = new MoveGenerator();
 
 		Pokemon compPoke = computer.getCurrPokemon();
 		// should have 4 moves in here
@@ -46,19 +41,15 @@ public class Battle {
 			}
 			i++;
 		}
-		// if player is defeated, player.getCurrPokemon is null
+		// player currPoke never null b/c we check if defeated before compTurn called
 		compPoke.attack(player.getCurrPokemon(), attackMove);
-
-		// return (compPoke.getName() + " uses " + attackMove.toString());
 	}
 
-	public void playerTurn() {
-		// display available moves
-		// user selects move
-		// attack computer pokemon with move
+	private void playerTurn() {
+
 		HashSet<Move> playerMovesSet = player.getCurrPokemon().getMoves();
 		Move[] playerMoves = new Move[playerMovesSet.size()];
-		// I don't really get how the below line works
+		// TODO: Understand how toArray method works later
 		playerMovesSet.toArray(playerMoves);
 
 		Scanner in;
@@ -94,21 +85,10 @@ public class Battle {
 			{
 				Scene.printToScreen("Invalid command #, this is not a number");
 			}
-
 		}
-
-		/*
-		for (Move move : playerMoves)
-		{
-			System.out.print(move.toString() + ", ");
-		}
-		
-		System.out.println();
-		*/
-
 	}
 
-	public boolean selectPlayerCurrPoke() {
+	private boolean selectPlayerCurrPoke() {
 		boolean switchMade = false;
 		ArrayList<Pokemon> alPokemon = player.getAllPokemon();
 
@@ -133,7 +113,7 @@ public class Battle {
 				userIndex--;
 				if (userIndex == -1)
 				{
-					// decided to not wtich
+					// decided to not switch
 					validInput = true;
 				} else if (userIndex >= 0 && userIndex <= alPokemon.size())
 				{
@@ -163,7 +143,7 @@ public class Battle {
 		return computer;
 	}
 
-	public boolean isGameOver() {
+	private boolean isGameOver() {
 		boolean gameOver = false;
 		if (player.checkLost() || computer.checkLost())
 		{
@@ -173,7 +153,7 @@ public class Battle {
 		return gameOver;
 	}
 
-	public Trainer whoWon() {
+	private Trainer whoWon() {
 		Trainer winner;
 		if (player.checkLost())
 		{
@@ -190,18 +170,12 @@ public class Battle {
 
 		while (isGameOver() == false)
 		{
-			Pokemon playerPoke = player.getCurrPokemon();
-			Pokemon computerPoke = computer.getCurrPokemon();
+			displayTrainersAndPokemon();
 
-			Scene.printToScreen(player.getName() + "\'s " + playerPoke.getName() + " hp=" + playerPoke.getHP() + " vs "
-					+ computer.getName() + "\'s " + computer.getCurrPokemon().getName() + " hp="
-					+ computerPoke.getHP());
 			computerTurn();
 			if (isGameOver() == false)
 			{
-				Scene.printToScreen("\n" + player.getName() + "\'s " + player.getCurrPokemon().getName() + " hp="
-						+ player.getCurrPokemon().getHP() + " vs " + computer.getName() + "\'s "
-						+ computer.getCurrPokemon().getName() + " hp=" + computer.getCurrPokemon().getHP());
+				displayTrainersAndPokemon();
 				Scene.printToScreen(
 						"Trainer " + computer.getName() + " has " + computer.getAllPokemon().size() + " pokemon left.");
 				playerTurn();
@@ -215,6 +189,12 @@ public class Battle {
 		{
 			Scene.printToScreen("Trainer " + computer.getName() + " defeated Trainer " + player.getName());
 		}
+	}
+
+	public void displayTrainersAndPokemon() {
+		Scene.printToScreen("\n" + player.getName() + "\'s " + player.getCurrPokemon().getName() + " hp="
+				+ player.getCurrPokemon().getHP() + " vs " + computer.getName() + "\'s "
+				+ computer.getCurrPokemon().getName() + " hp=" + computer.getCurrPokemon().getHP());
 	}
 
 }

@@ -4,8 +4,8 @@ import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.List;
 
-import pokemonBattleJUnit.Effectiveness;
-import pokemonBattleJUnit.Type;
+import constants.Effectiveness;
+import constants.Type;
 
 /*
  * Based on generation 1: https://pokemondb.net/type/old

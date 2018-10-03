@@ -1,8 +1,9 @@
-package logic;
+package creatures;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import generators.PokeGenerator;
 import presentation.Scene;
 
 public class Trainer {
