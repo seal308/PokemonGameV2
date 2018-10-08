@@ -1,0 +1,10 @@
+/Main.class
+.classpath
+.settings
+generators/.gitignore
+logic/.gitignore
+test/.gitignore
+presentation/.gitignore
+creatures/.gitignore
+.project
+constants/.gitignore
