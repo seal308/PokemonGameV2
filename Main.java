@@ -3,6 +3,10 @@
 import logic.Battle;
 import presentation.Scene;
 
+/*
+ * Main file for PokemonV2
+ */
+
 public class Main {
 
 	public static void main(String[] args) {
